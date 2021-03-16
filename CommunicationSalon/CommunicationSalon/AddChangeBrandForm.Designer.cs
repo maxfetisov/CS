@@ -1,0 +1,107 @@
+﻿
+namespace CommunicationSalon
+{
+    partial class AddChangeBrandForm
+    {
+        /// <summary>
+        /// Required designer variable.
+        /// </summary>
+        private System.ComponentModel.IContainer components = null;
+
+        /// <summary>
+        /// Clean up any resources being used.
+        /// </summary>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
+        #region Windows Form Designer generated code
+
+        /// <summary>
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
+        /// </summary>
+        private void InitializeComponent()
+        {
+            this.nameTB = new System.Windows.Forms.TextBox();
+            this.nameL = new System.Windows.Forms.Label();
+            this.addB = new System.Windows.Forms.Button();
+            this.deleteB = new System.Windows.Forms.Button();
+            this.changeB = new System.Windows.Forms.Button();
+            this.SuspendLayout();
+            // 
+            // nameTB
+            // 
+            this.nameTB.Location = new System.Drawing.Point(82, 89);
+            this.nameTB.Name = "nameTB";
+            this.nameTB.Size = new System.Drawing.Size(124, 20);
+            this.nameTB.TabIndex = 0;
+            // 
+            // nameL
+            // 
+            this.nameL.AutoSize = true;
+            this.nameL.Location = new System.Drawing.Point(82, 66);
+            this.nameL.Name = "nameL";
+            this.nameL.Size = new System.Drawing.Size(60, 13);
+            this.nameL.TabIndex = 1;
+            this.nameL.Text = "Название:";
+            // 
+            // addB
+            // 
+            this.addB.Location = new System.Drawing.Point(53, 137);
+            this.addB.Name = "addB";
+            this.addB.Size = new System.Drawing.Size(75, 23);
+            this.addB.TabIndex = 2;
+            this.addB.Text = "Добавить";
+            this.addB.UseVisualStyleBackColor = true;
+            // 
+            // deleteB
+            // 
+            this.deleteB.Location = new System.Drawing.Point(163, 137);
+            this.deleteB.Name = "deleteB";
+            this.deleteB.Size = new System.Drawing.Size(75, 23);
+            this.deleteB.TabIndex = 3;
+            this.deleteB.Text = "Удалить";
+            this.deleteB.UseVisualStyleBackColor = true;
+            // 
+            // changeB
+            // 
+            this.changeB.Location = new System.Drawing.Point(53, 137);
+            this.changeB.Name = "changeB";
+            this.changeB.Size = new System.Drawing.Size(75, 23);
+            this.changeB.TabIndex = 4;
+            this.changeB.Text = "Изменить";
+            this.changeB.UseVisualStyleBackColor = true;
+            // 
+            // AddChangeBrand
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(292, 222);
+            this.Controls.Add(this.changeB);
+            this.Controls.Add(this.deleteB);
+            this.Controls.Add(this.addB);
+            this.Controls.Add(this.nameL);
+            this.Controls.Add(this.nameTB);
+            this.Name = "AddChangeBrand";
+            this.Text = "Брэнд";
+            this.ResumeLayout(false);
+            this.PerformLayout();
+
+        }
+
+        #endregion
+
+        private System.Windows.Forms.TextBox nameTB;
+        private System.Windows.Forms.Label nameL;
+        private System.Windows.Forms.Button addB;
+        private System.Windows.Forms.Button deleteB;
+        private System.Windows.Forms.Button changeB;
+    }
+}
