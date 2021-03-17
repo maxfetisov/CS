@@ -47,7 +47,7 @@ namespace CommunicationSalon
             // 
             // passwordTB
             // 
-            this.passwordTB.Location = new System.Drawing.Point(33, 115);
+            this.passwordTB.Location = new System.Drawing.Point(33, 132);
             this.passwordTB.Name = "passwordTB";
             this.passwordTB.Size = new System.Drawing.Size(159, 20);
             this.passwordTB.TabIndex = 1;
@@ -64,7 +64,7 @@ namespace CommunicationSalon
             // passwordL
             // 
             this.passwordL.AutoSize = true;
-            this.passwordL.Location = new System.Drawing.Point(30, 90);
+            this.passwordL.Location = new System.Drawing.Point(30, 107);
             this.passwordL.Name = "passwordL";
             this.passwordL.Size = new System.Drawing.Size(48, 13);
             this.passwordL.TabIndex = 3;
@@ -72,9 +72,9 @@ namespace CommunicationSalon
             // 
             // EnterB
             // 
-            this.EnterB.Location = new System.Drawing.Point(73, 165);
+            this.EnterB.Location = new System.Drawing.Point(219, 118);
             this.EnterB.Name = "EnterB";
-            this.EnterB.Size = new System.Drawing.Size(75, 23);
+            this.EnterB.Size = new System.Drawing.Size(105, 34);
             this.EnterB.TabIndex = 4;
             this.EnterB.Text = "Войти";
             this.EnterB.UseVisualStyleBackColor = true;
@@ -82,21 +82,21 @@ namespace CommunicationSalon
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(154, 165);
+            this.button1.Location = new System.Drawing.Point(219, 31);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.Size = new System.Drawing.Size(105, 36);
             this.button1.TabIndex = 5;
-            this.button1.Text = "button1";
+            this.button1.Text = "Windows авторизация";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(87, 12);
+            this.button2.Location = new System.Drawing.Point(219, 73);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
+            this.button2.Size = new System.Drawing.Size(105, 39);
             this.button2.TabIndex = 6;
-            this.button2.Text = "button2";
+            this.button2.Text = "Добавление админстратора";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
@@ -104,7 +104,7 @@ namespace CommunicationSalon
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(228, 206);
+            this.ClientSize = new System.Drawing.Size(357, 172);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.EnterB);

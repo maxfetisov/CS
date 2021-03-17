@@ -31,7 +31,7 @@ namespace CommunicationSalon
         {
             this.numberTB = new System.Windows.Forms.TextBox();
             this.numberL = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.tariffCB = new System.Windows.Forms.ComboBox();
             this.deleteB = new System.Windows.Forms.Button();
             this.addB = new System.Windows.Forms.Button();
             this.userCB = new System.Windows.Forms.ComboBox();
@@ -47,7 +47,8 @@ namespace CommunicationSalon
             // 
             this.numberTB.Location = new System.Drawing.Point(51, 43);
             this.numberTB.Name = "numberTB";
-            this.numberTB.Size = new System.Drawing.Size(165, 20);
+            this.numberTB.ReadOnly = true;
+            this.numberTB.Size = new System.Drawing.Size(351, 20);
             this.numberTB.TabIndex = 0;
             // 
             // numberL
@@ -59,22 +60,24 @@ namespace CommunicationSalon
             this.numberL.TabIndex = 1;
             this.numberL.Text = "Номер:";
             // 
-            // comboBox1
+            // tariffCB
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(51, 89);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(165, 21);
-            this.comboBox1.TabIndex = 2;
+            this.tariffCB.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.tariffCB.FormattingEnabled = true;
+            this.tariffCB.Location = new System.Drawing.Point(51, 89);
+            this.tariffCB.Name = "tariffCB";
+            this.tariffCB.Size = new System.Drawing.Size(351, 21);
+            this.tariffCB.TabIndex = 2;
             // 
             // deleteB
             // 
-            this.deleteB.Location = new System.Drawing.Point(165, 228);
+            this.deleteB.Location = new System.Drawing.Point(360, 228);
             this.deleteB.Name = "deleteB";
             this.deleteB.Size = new System.Drawing.Size(75, 23);
             this.deleteB.TabIndex = 3;
             this.deleteB.Text = "Удалить";
             this.deleteB.UseVisualStyleBackColor = true;
+            this.deleteB.Click += new System.EventHandler(this.deleteB_Click);
             // 
             // addB
             // 
@@ -84,20 +87,22 @@ namespace CommunicationSalon
             this.addB.TabIndex = 4;
             this.addB.Text = "Добавить";
             this.addB.UseVisualStyleBackColor = true;
+            this.addB.Click += new System.EventHandler(this.addB_Click);
             // 
             // userCB
             // 
+            this.userCB.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.userCB.FormattingEnabled = true;
             this.userCB.Location = new System.Drawing.Point(51, 135);
             this.userCB.Name = "userCB";
-            this.userCB.Size = new System.Drawing.Size(165, 21);
+            this.userCB.Size = new System.Drawing.Size(351, 21);
             this.userCB.TabIndex = 5;
             // 
             // balanceNUD
             // 
             this.balanceNUD.Location = new System.Drawing.Point(51, 182);
             this.balanceNUD.Name = "balanceNUD";
-            this.balanceNUD.Size = new System.Drawing.Size(165, 20);
+            this.balanceNUD.Size = new System.Drawing.Size(351, 20);
             this.balanceNUD.TabIndex = 6;
             // 
             // changeB
@@ -108,6 +113,7 @@ namespace CommunicationSalon
             this.changeB.TabIndex = 7;
             this.changeB.Text = "Изменить";
             this.changeB.UseVisualStyleBackColor = true;
+            this.changeB.Click += new System.EventHandler(this.changeB_Click);
             // 
             // tariffL
             // 
@@ -140,7 +146,7 @@ namespace CommunicationSalon
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(268, 272);
+            this.ClientSize = new System.Drawing.Size(475, 272);
             this.Controls.Add(this.BalanceL);
             this.Controls.Add(this.userL);
             this.Controls.Add(this.tariffL);
@@ -149,7 +155,7 @@ namespace CommunicationSalon
             this.Controls.Add(this.userCB);
             this.Controls.Add(this.addB);
             this.Controls.Add(this.deleteB);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.tariffCB);
             this.Controls.Add(this.numberL);
             this.Controls.Add(this.numberTB);
             this.Name = "AddChangePhoneNumberForm";
@@ -164,7 +170,7 @@ namespace CommunicationSalon
 
         private System.Windows.Forms.TextBox numberTB;
         private System.Windows.Forms.Label numberL;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox tariffCB;
         private System.Windows.Forms.Button deleteB;
         private System.Windows.Forms.Button addB;
         private System.Windows.Forms.ComboBox userCB;

@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 namespace CommunicationSalon
 {
     [Table("Product")]
-    class Product
+    public class Product
     {
         [Key]
         [StringLength(200)]

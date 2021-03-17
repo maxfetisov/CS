@@ -29,11 +29,11 @@ namespace CommunicationSalon
         /// </summary>
         private void InitializeComponent()
         {
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
-            this.numericUpDown2 = new System.Windows.Forms.NumericUpDown();
-            this.numericUpDown3 = new System.Windows.Forms.NumericUpDown();
+            this.nameTB = new System.Windows.Forms.TextBox();
+            this.descriptionRTB = new System.Windows.Forms.RichTextBox();
+            this.priceNUD = new System.Windows.Forms.NumericUpDown();
+            this.minutesNUD = new System.Windows.Forms.NumericUpDown();
+            this.internetNUD = new System.Windows.Forms.NumericUpDown();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -42,46 +42,46 @@ namespace CommunicationSalon
             this.addB = new System.Windows.Forms.Button();
             this.changeB = new System.Windows.Forms.Button();
             this.deleteB = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.priceNUD)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.minutesNUD)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.internetNUD)).BeginInit();
             this.SuspendLayout();
             // 
-            // textBox1
+            // nameTB
             // 
-            this.textBox1.Location = new System.Drawing.Point(63, 57);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(145, 20);
-            this.textBox1.TabIndex = 0;
+            this.nameTB.Location = new System.Drawing.Point(63, 57);
+            this.nameTB.Name = "nameTB";
+            this.nameTB.Size = new System.Drawing.Size(145, 20);
+            this.nameTB.TabIndex = 0;
             // 
-            // richTextBox1
+            // descriptionRTB
             // 
-            this.richTextBox1.Location = new System.Drawing.Point(63, 119);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(145, 81);
-            this.richTextBox1.TabIndex = 1;
-            this.richTextBox1.Text = "";
+            this.descriptionRTB.Location = new System.Drawing.Point(63, 119);
+            this.descriptionRTB.Name = "descriptionRTB";
+            this.descriptionRTB.Size = new System.Drawing.Size(145, 81);
+            this.descriptionRTB.TabIndex = 1;
+            this.descriptionRTB.Text = "";
             // 
-            // numericUpDown1
+            // priceNUD
             // 
-            this.numericUpDown1.Location = new System.Drawing.Point(241, 56);
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(139, 20);
-            this.numericUpDown1.TabIndex = 2;
+            this.priceNUD.Location = new System.Drawing.Point(241, 56);
+            this.priceNUD.Name = "priceNUD";
+            this.priceNUD.Size = new System.Drawing.Size(139, 20);
+            this.priceNUD.TabIndex = 2;
             // 
-            // numericUpDown2
+            // minutesNUD
             // 
-            this.numericUpDown2.Location = new System.Drawing.Point(241, 119);
-            this.numericUpDown2.Name = "numericUpDown2";
-            this.numericUpDown2.Size = new System.Drawing.Size(139, 20);
-            this.numericUpDown2.TabIndex = 3;
+            this.minutesNUD.Location = new System.Drawing.Point(241, 119);
+            this.minutesNUD.Name = "minutesNUD";
+            this.minutesNUD.Size = new System.Drawing.Size(139, 20);
+            this.minutesNUD.TabIndex = 3;
             // 
-            // numericUpDown3
+            // internetNUD
             // 
-            this.numericUpDown3.Location = new System.Drawing.Point(241, 180);
-            this.numericUpDown3.Name = "numericUpDown3";
-            this.numericUpDown3.Size = new System.Drawing.Size(139, 20);
-            this.numericUpDown3.TabIndex = 4;
+            this.internetNUD.Location = new System.Drawing.Point(241, 180);
+            this.internetNUD.Name = "internetNUD";
+            this.internetNUD.Size = new System.Drawing.Size(139, 20);
+            this.internetNUD.TabIndex = 4;
             // 
             // label1
             // 
@@ -136,6 +136,7 @@ namespace CommunicationSalon
             this.addB.TabIndex = 10;
             this.addB.Text = "Добавить";
             this.addB.UseVisualStyleBackColor = true;
+            this.addB.Click += new System.EventHandler(this.addB_Click);
             // 
             // changeB
             // 
@@ -145,6 +146,7 @@ namespace CommunicationSalon
             this.changeB.TabIndex = 11;
             this.changeB.Text = "Изменить";
             this.changeB.UseVisualStyleBackColor = true;
+            this.changeB.Click += new System.EventHandler(this.changeB_Click);
             // 
             // deleteB
             // 
@@ -154,6 +156,7 @@ namespace CommunicationSalon
             this.deleteB.TabIndex = 12;
             this.deleteB.Text = "Удалить";
             this.deleteB.UseVisualStyleBackColor = true;
+            this.deleteB.Click += new System.EventHandler(this.deleteB_Click);
             // 
             // AddChangeTariffForm
             // 
@@ -168,16 +171,16 @@ namespace CommunicationSalon
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.numericUpDown3);
-            this.Controls.Add(this.numericUpDown2);
-            this.Controls.Add(this.numericUpDown1);
-            this.Controls.Add(this.richTextBox1);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.internetNUD);
+            this.Controls.Add(this.minutesNUD);
+            this.Controls.Add(this.priceNUD);
+            this.Controls.Add(this.descriptionRTB);
+            this.Controls.Add(this.nameTB);
             this.Name = "AddChangeTariffForm";
             this.Text = "Тариф";
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.priceNUD)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.minutesNUD)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.internetNUD)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -185,11 +188,11 @@ namespace CommunicationSalon
 
         #endregion
 
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.RichTextBox richTextBox1;
-        private System.Windows.Forms.NumericUpDown numericUpDown1;
-        private System.Windows.Forms.NumericUpDown numericUpDown2;
-        private System.Windows.Forms.NumericUpDown numericUpDown3;
+        private System.Windows.Forms.TextBox nameTB;
+        private System.Windows.Forms.RichTextBox descriptionRTB;
+        private System.Windows.Forms.NumericUpDown priceNUD;
+        private System.Windows.Forms.NumericUpDown minutesNUD;
+        private System.Windows.Forms.NumericUpDown internetNUD;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;

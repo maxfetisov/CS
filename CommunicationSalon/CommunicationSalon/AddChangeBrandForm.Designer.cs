@@ -60,6 +60,7 @@ namespace CommunicationSalon
             this.addB.TabIndex = 2;
             this.addB.Text = "Добавить";
             this.addB.UseVisualStyleBackColor = true;
+            this.addB.Click += new System.EventHandler(this.addB_Click);
             // 
             // deleteB
             // 
@@ -69,6 +70,7 @@ namespace CommunicationSalon
             this.deleteB.TabIndex = 3;
             this.deleteB.Text = "Удалить";
             this.deleteB.UseVisualStyleBackColor = true;
+            this.deleteB.Click += new System.EventHandler(this.deleteB_Click);
             // 
             // changeB
             // 
@@ -78,8 +80,9 @@ namespace CommunicationSalon
             this.changeB.TabIndex = 4;
             this.changeB.Text = "Изменить";
             this.changeB.UseVisualStyleBackColor = true;
+            this.changeB.Click += new System.EventHandler(this.changeB_Click);
             // 
-            // AddChangeBrand
+            // AddChangeBrandForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -89,7 +92,7 @@ namespace CommunicationSalon
             this.Controls.Add(this.addB);
             this.Controls.Add(this.nameL);
             this.Controls.Add(this.nameTB);
-            this.Name = "AddChangeBrand";
+            this.Name = "AddChangeBrandForm";
             this.Text = "Брэнд";
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -27,6 +27,7 @@ namespace CommunicationSalon
             StaticContext sc = new StaticContext(connectionString);
             MainForm mainForm = new MainForm();
             mainForm.Show();
+            Close();
         }
 
         private void button1_Click(object sender, EventArgs e)

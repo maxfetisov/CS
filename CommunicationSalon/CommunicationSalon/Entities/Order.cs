@@ -10,10 +10,10 @@ using System.Threading.Tasks;
 namespace CommunicationSalon
 {
     [Table("Order")]
-    class Order
+    public class Order
     {
         [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int Id { get; set; }
         [Required]
         public DateTime StartDate { get; set; }

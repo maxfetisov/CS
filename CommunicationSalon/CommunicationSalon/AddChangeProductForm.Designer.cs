@@ -30,12 +30,12 @@ namespace CommunicationSalon
         private void InitializeComponent()
         {
             this.articleTB = new System.Windows.Forms.TextBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
-            this.numericUpDown2 = new System.Windows.Forms.NumericUpDown();
+            this.brandCB = new System.Windows.Forms.ComboBox();
+            this.nameTB = new System.Windows.Forms.TextBox();
+            this.modelTB = new System.Windows.Forms.TextBox();
+            this.typeProductCB = new System.Windows.Forms.ComboBox();
+            this.priceNUD = new System.Windows.Forms.NumericUpDown();
+            this.quantityInStockNUD = new System.Windows.Forms.NumericUpDown();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -47,8 +47,8 @@ namespace CommunicationSalon
             this.deleteB = new System.Windows.Forms.Button();
             this.changeB = new System.Windows.Forms.Button();
             this.intoBasketB = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.priceNUD)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.quantityInStockNUD)).BeginInit();
             this.SuspendLayout();
             // 
             // articleTB
@@ -58,49 +58,51 @@ namespace CommunicationSalon
             this.articleTB.Size = new System.Drawing.Size(139, 20);
             this.articleTB.TabIndex = 0;
             // 
-            // comboBox1
+            // brandCB
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(346, 45);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(139, 21);
-            this.comboBox1.TabIndex = 1;
+            this.brandCB.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.brandCB.FormattingEnabled = true;
+            this.brandCB.Location = new System.Drawing.Point(346, 45);
+            this.brandCB.Name = "brandCB";
+            this.brandCB.Size = new System.Drawing.Size(139, 21);
+            this.brandCB.TabIndex = 1;
             // 
-            // textBox2
+            // nameTB
             // 
-            this.textBox2.Location = new System.Drawing.Point(75, 110);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(139, 20);
-            this.textBox2.TabIndex = 2;
+            this.nameTB.Location = new System.Drawing.Point(75, 110);
+            this.nameTB.Name = "nameTB";
+            this.nameTB.Size = new System.Drawing.Size(139, 20);
+            this.nameTB.TabIndex = 2;
             // 
-            // textBox3
+            // modelTB
             // 
-            this.textBox3.Location = new System.Drawing.Point(346, 110);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(139, 20);
-            this.textBox3.TabIndex = 3;
+            this.modelTB.Location = new System.Drawing.Point(346, 110);
+            this.modelTB.Name = "modelTB";
+            this.modelTB.Size = new System.Drawing.Size(139, 20);
+            this.modelTB.TabIndex = 3;
             // 
-            // comboBox2
+            // typeProductCB
             // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(78, 185);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(139, 21);
-            this.comboBox2.TabIndex = 4;
+            this.typeProductCB.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.typeProductCB.FormattingEnabled = true;
+            this.typeProductCB.Location = new System.Drawing.Point(78, 185);
+            this.typeProductCB.Name = "typeProductCB";
+            this.typeProductCB.Size = new System.Drawing.Size(139, 21);
+            this.typeProductCB.TabIndex = 4;
             // 
-            // numericUpDown1
+            // priceNUD
             // 
-            this.numericUpDown1.Location = new System.Drawing.Point(346, 185);
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(139, 20);
-            this.numericUpDown1.TabIndex = 5;
+            this.priceNUD.Location = new System.Drawing.Point(346, 185);
+            this.priceNUD.Name = "priceNUD";
+            this.priceNUD.Size = new System.Drawing.Size(139, 20);
+            this.priceNUD.TabIndex = 5;
             // 
-            // numericUpDown2
+            // quantityInStockNUD
             // 
-            this.numericUpDown2.Location = new System.Drawing.Point(75, 266);
-            this.numericUpDown2.Name = "numericUpDown2";
-            this.numericUpDown2.Size = new System.Drawing.Size(139, 20);
-            this.numericUpDown2.TabIndex = 6;
+            this.quantityInStockNUD.Location = new System.Drawing.Point(75, 266);
+            this.quantityInStockNUD.Name = "quantityInStockNUD";
+            this.quantityInStockNUD.Size = new System.Drawing.Size(139, 20);
+            this.quantityInStockNUD.TabIndex = 6;
             // 
             // label1
             // 
@@ -173,6 +175,7 @@ namespace CommunicationSalon
             this.addB.TabIndex = 14;
             this.addB.Text = "Добавить";
             this.addB.UseVisualStyleBackColor = true;
+            this.addB.Click += new System.EventHandler(this.addB_Click);
             // 
             // deleteB
             // 
@@ -182,6 +185,7 @@ namespace CommunicationSalon
             this.deleteB.TabIndex = 15;
             this.deleteB.Text = "Удалить";
             this.deleteB.UseVisualStyleBackColor = true;
+            this.deleteB.Click += new System.EventHandler(this.deleteB_Click);
             // 
             // changeB
             // 
@@ -191,9 +195,11 @@ namespace CommunicationSalon
             this.changeB.TabIndex = 16;
             this.changeB.Text = "Изменить";
             this.changeB.UseVisualStyleBackColor = true;
+            this.changeB.Click += new System.EventHandler(this.changeB_Click);
             // 
             // intoBasketB
             // 
+            this.intoBasketB.Enabled = false;
             this.intoBasketB.Location = new System.Drawing.Point(346, 263);
             this.intoBasketB.Name = "intoBasketB";
             this.intoBasketB.Size = new System.Drawing.Size(75, 23);
@@ -217,17 +223,17 @@ namespace CommunicationSalon
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.numericUpDown2);
-            this.Controls.Add(this.numericUpDown1);
-            this.Controls.Add(this.comboBox2);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.quantityInStockNUD);
+            this.Controls.Add(this.priceNUD);
+            this.Controls.Add(this.typeProductCB);
+            this.Controls.Add(this.modelTB);
+            this.Controls.Add(this.nameTB);
+            this.Controls.Add(this.brandCB);
             this.Controls.Add(this.articleTB);
             this.Name = "AddChangeProductForm";
             this.Text = "Товар";
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.priceNUD)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.quantityInStockNUD)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -236,12 +242,12 @@ namespace CommunicationSalon
         #endregion
 
         private System.Windows.Forms.TextBox articleTB;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.ComboBox comboBox2;
-        private System.Windows.Forms.NumericUpDown numericUpDown1;
-        private System.Windows.Forms.NumericUpDown numericUpDown2;
+        private System.Windows.Forms.ComboBox brandCB;
+        private System.Windows.Forms.TextBox nameTB;
+        private System.Windows.Forms.TextBox modelTB;
+        private System.Windows.Forms.ComboBox typeProductCB;
+        private System.Windows.Forms.NumericUpDown priceNUD;
+        private System.Windows.Forms.NumericUpDown quantityInStockNUD;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;

@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 namespace CommunicationSalon
 {
     [Table("Consumer")]
-    class Consumer
+    public class Consumer
     {
         [Key]
         [StringLength(200)]
@@ -17,8 +17,8 @@ namespace CommunicationSalon
         [Required]
         [StringLength(50)]
         public string Password { get; set; }
-        [Required]
         public virtual RoleConsumer RoleConsumer { get; set; }
+        [Required]
         [ForeignKey("RoleConsumer")]
         public virtual int RoleConsumerId { get; set; }
         [Required]
@@ -29,8 +29,8 @@ namespace CommunicationSalon
         public string FirstName { get; set; }
         [StringLength(50)]
         public string MiddleName { get; set; }
-        [Required]
         public virtual Gender Gender { get; set; }
+        [Required]
         [ForeignKey("Gender")]
         public virtual int GenderId { get; set; }
         public Consumer() { }

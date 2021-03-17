@@ -32,13 +32,11 @@ namespace CommunicationSalon
             this.lastNameTB = new System.Windows.Forms.TextBox();
             this.firstNameTB = new System.Windows.Forms.TextBox();
             this.middleNameTB = new System.Windows.Forms.TextBox();
-            this.birthdayDTP = new System.Windows.Forms.DateTimePicker();
             this.genderCB = new System.Windows.Forms.ComboBox();
             this.emailTB = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.addB = new System.Windows.Forms.Button();
@@ -67,24 +65,18 @@ namespace CommunicationSalon
             this.middleNameTB.Size = new System.Drawing.Size(146, 20);
             this.middleNameTB.TabIndex = 2;
             // 
-            // birthdayDTP
-            // 
-            this.birthdayDTP.Location = new System.Drawing.Point(108, 202);
-            this.birthdayDTP.Name = "birthdayDTP";
-            this.birthdayDTP.Size = new System.Drawing.Size(146, 20);
-            this.birthdayDTP.TabIndex = 3;
-            // 
             // genderCB
             // 
+            this.genderCB.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.genderCB.FormattingEnabled = true;
-            this.genderCB.Location = new System.Drawing.Point(108, 255);
+            this.genderCB.Location = new System.Drawing.Point(108, 199);
             this.genderCB.Name = "genderCB";
             this.genderCB.Size = new System.Drawing.Size(146, 21);
             this.genderCB.TabIndex = 4;
             // 
             // emailTB
             // 
-            this.emailTB.Location = new System.Drawing.Point(108, 311);
+            this.emailTB.Location = new System.Drawing.Point(108, 255);
             this.emailTB.Name = "emailTB";
             this.emailTB.Size = new System.Drawing.Size(146, 20);
             this.emailTB.TabIndex = 5;
@@ -116,19 +108,10 @@ namespace CommunicationSalon
             this.label3.TabIndex = 8;
             this.label3.Text = "Отчество:";
             // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(108, 177);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(89, 13);
-            this.label4.TabIndex = 9;
-            this.label4.Text = "Дата рождения:";
-            // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(108, 236);
+            this.label5.Location = new System.Drawing.Point(108, 180);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(30, 13);
             this.label5.TabIndex = 10;
@@ -137,7 +120,7 @@ namespace CommunicationSalon
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(108, 292);
+            this.label6.Location = new System.Drawing.Point(108, 236);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(35, 13);
             this.label6.TabIndex = 11;
@@ -145,48 +128,49 @@ namespace CommunicationSalon
             // 
             // addB
             // 
-            this.addB.Location = new System.Drawing.Point(88, 360);
+            this.addB.Location = new System.Drawing.Point(88, 304);
             this.addB.Name = "addB";
             this.addB.Size = new System.Drawing.Size(75, 23);
             this.addB.TabIndex = 12;
             this.addB.Text = "Добавить";
             this.addB.UseVisualStyleBackColor = true;
+            this.addB.Click += new System.EventHandler(this.addB_Click);
             // 
             // changeB
             // 
-            this.changeB.Location = new System.Drawing.Point(88, 360);
+            this.changeB.Location = new System.Drawing.Point(88, 304);
             this.changeB.Name = "changeB";
             this.changeB.Size = new System.Drawing.Size(75, 23);
             this.changeB.TabIndex = 13;
             this.changeB.Text = "Изменить";
             this.changeB.UseVisualStyleBackColor = true;
+            this.changeB.Click += new System.EventHandler(this.changeB_Click);
             // 
             // deleteB
             // 
-            this.deleteB.Location = new System.Drawing.Point(201, 360);
+            this.deleteB.Location = new System.Drawing.Point(201, 304);
             this.deleteB.Name = "deleteB";
             this.deleteB.Size = new System.Drawing.Size(75, 23);
             this.deleteB.TabIndex = 14;
             this.deleteB.Text = "Удалить";
             this.deleteB.UseVisualStyleBackColor = true;
+            this.deleteB.Click += new System.EventHandler(this.deleteB_Click);
             // 
             // AddChangeUserForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(367, 407);
+            this.ClientSize = new System.Drawing.Size(367, 350);
             this.Controls.Add(this.deleteB);
             this.Controls.Add(this.changeB);
             this.Controls.Add(this.addB);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.emailTB);
             this.Controls.Add(this.genderCB);
-            this.Controls.Add(this.birthdayDTP);
             this.Controls.Add(this.middleNameTB);
             this.Controls.Add(this.firstNameTB);
             this.Controls.Add(this.lastNameTB);
@@ -202,13 +186,11 @@ namespace CommunicationSalon
         private System.Windows.Forms.TextBox lastNameTB;
         private System.Windows.Forms.TextBox firstNameTB;
         private System.Windows.Forms.TextBox middleNameTB;
-        private System.Windows.Forms.DateTimePicker birthdayDTP;
         private System.Windows.Forms.ComboBox genderCB;
         private System.Windows.Forms.TextBox emailTB;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button addB;

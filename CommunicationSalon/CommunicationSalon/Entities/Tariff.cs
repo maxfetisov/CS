@@ -9,10 +9,10 @@ using System.Threading.Tasks;
 namespace CommunicationSalon
 {
     [Table("Tariff")]
-    class Tariff
+    public class Tariff
     {
         [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int Id { get; set; }
         [Required]
         [StringLength(100)]
