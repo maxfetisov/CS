@@ -34,20 +34,22 @@ namespace CommunicationSalon
             this.loginL = new System.Windows.Forms.Label();
             this.passwordL = new System.Windows.Forms.Label();
             this.EnterB = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.windowsAuthB = new System.Windows.Forms.Button();
+            this.startDataB = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.modeCB = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // loginTB
             // 
-            this.loginTB.Location = new System.Drawing.Point(33, 57);
+            this.loginTB.Location = new System.Drawing.Point(33, 47);
             this.loginTB.Name = "loginTB";
             this.loginTB.Size = new System.Drawing.Size(159, 20);
             this.loginTB.TabIndex = 0;
             // 
             // passwordTB
             // 
-            this.passwordTB.Location = new System.Drawing.Point(33, 132);
+            this.passwordTB.Location = new System.Drawing.Point(33, 89);
             this.passwordTB.Name = "passwordTB";
             this.passwordTB.Size = new System.Drawing.Size(159, 20);
             this.passwordTB.TabIndex = 1;
@@ -64,7 +66,7 @@ namespace CommunicationSalon
             // passwordL
             // 
             this.passwordL.AutoSize = true;
-            this.passwordL.Location = new System.Drawing.Point(30, 107);
+            this.passwordL.Location = new System.Drawing.Point(30, 73);
             this.passwordL.Name = "passwordL";
             this.passwordL.Size = new System.Drawing.Size(48, 13);
             this.passwordL.TabIndex = 3;
@@ -72,7 +74,7 @@ namespace CommunicationSalon
             // 
             // EnterB
             // 
-            this.EnterB.Location = new System.Drawing.Point(219, 118);
+            this.EnterB.Location = new System.Drawing.Point(219, 124);
             this.EnterB.Name = "EnterB";
             this.EnterB.Size = new System.Drawing.Size(105, 34);
             this.EnterB.TabIndex = 4;
@@ -80,33 +82,56 @@ namespace CommunicationSalon
             this.EnterB.UseVisualStyleBackColor = true;
             this.EnterB.Click += new System.EventHandler(this.EnterB_Click);
             // 
-            // button1
+            // windowsAuthB
             // 
-            this.button1.Location = new System.Drawing.Point(219, 31);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(105, 36);
-            this.button1.TabIndex = 5;
-            this.button1.Text = "Windows авторизация";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.windowsAuthB.Location = new System.Drawing.Point(219, 31);
+            this.windowsAuthB.Name = "windowsAuthB";
+            this.windowsAuthB.Size = new System.Drawing.Size(105, 36);
+            this.windowsAuthB.TabIndex = 5;
+            this.windowsAuthB.Text = "Windows авторизация";
+            this.windowsAuthB.UseVisualStyleBackColor = true;
+            this.windowsAuthB.Click += new System.EventHandler(this.windowsAuthB_Click);
             // 
-            // button2
+            // startDataB
             // 
-            this.button2.Location = new System.Drawing.Point(219, 73);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(105, 39);
-            this.button2.TabIndex = 6;
-            this.button2.Text = "Добавление админстратора";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.startDataB.Location = new System.Drawing.Point(219, 73);
+            this.startDataB.Name = "startDataB";
+            this.startDataB.Size = new System.Drawing.Size(105, 47);
+            this.startDataB.TabIndex = 6;
+            this.startDataB.Text = "Добавление начальных данных";
+            this.startDataB.UseVisualStyleBackColor = true;
+            this.startDataB.Click += new System.EventHandler(this.startDataB_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(30, 117);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(45, 13);
+            this.label1.TabIndex = 7;
+            this.label1.Text = "Режим:";
+            // 
+            // modeCB
+            // 
+            this.modeCB.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.modeCB.FormattingEnabled = true;
+            this.modeCB.Items.AddRange(new object[] {
+            "Клиент",
+            "Редактирование"});
+            this.modeCB.Location = new System.Drawing.Point(33, 133);
+            this.modeCB.Name = "modeCB";
+            this.modeCB.Size = new System.Drawing.Size(159, 21);
+            this.modeCB.TabIndex = 8;
             // 
             // Authorization
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(357, 172);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.modeCB);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.startDataB);
+            this.Controls.Add(this.windowsAuthB);
             this.Controls.Add(this.EnterB);
             this.Controls.Add(this.passwordL);
             this.Controls.Add(this.loginL);
@@ -126,8 +151,10 @@ namespace CommunicationSalon
         private System.Windows.Forms.Label loginL;
         private System.Windows.Forms.Label passwordL;
         private System.Windows.Forms.Button EnterB;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button windowsAuthB;
+        private System.Windows.Forms.Button startDataB;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ComboBox modeCB;
     }
 }
 

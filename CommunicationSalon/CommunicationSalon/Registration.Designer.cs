@@ -31,7 +31,7 @@ namespace CommunicationSalon
         {
             this.emailTB = new System.Windows.Forms.TextBox();
             this.passwordTB = new System.Windows.Forms.TextBox();
-            this.roleCB = new System.Windows.Forms.ComboBox();
+            this.roleConsumerCB = new System.Windows.Forms.ComboBox();
             this.lastNameTB = new System.Windows.Forms.TextBox();
             this.ferstNameTB = new System.Windows.Forms.TextBox();
             this.middleNameTB = new System.Windows.Forms.TextBox();
@@ -60,13 +60,14 @@ namespace CommunicationSalon
             this.passwordTB.Size = new System.Drawing.Size(154, 20);
             this.passwordTB.TabIndex = 1;
             // 
-            // roleCB
+            // roleConsumerCB
             // 
-            this.roleCB.FormattingEnabled = true;
-            this.roleCB.Location = new System.Drawing.Point(56, 116);
-            this.roleCB.Name = "roleCB";
-            this.roleCB.Size = new System.Drawing.Size(154, 21);
-            this.roleCB.TabIndex = 2;
+            this.roleConsumerCB.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.roleConsumerCB.FormattingEnabled = true;
+            this.roleConsumerCB.Location = new System.Drawing.Point(56, 116);
+            this.roleConsumerCB.Name = "roleConsumerCB";
+            this.roleConsumerCB.Size = new System.Drawing.Size(154, 21);
+            this.roleConsumerCB.TabIndex = 2;
             // 
             // lastNameTB
             // 
@@ -91,6 +92,7 @@ namespace CommunicationSalon
             // 
             // genderCB
             // 
+            this.genderCB.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.genderCB.FormattingEnabled = true;
             this.genderCB.Location = new System.Drawing.Point(56, 285);
             this.genderCB.Name = "genderCB";
@@ -105,6 +107,7 @@ namespace CommunicationSalon
             this.registrateB.TabIndex = 7;
             this.registrateB.Text = "Зарегистриров";
             this.registrateB.UseVisualStyleBackColor = true;
+            this.registrateB.Click += new System.EventHandler(this.registrateB_Click);
             // 
             // emailL
             // 
@@ -186,7 +189,7 @@ namespace CommunicationSalon
             this.Controls.Add(this.middleNameTB);
             this.Controls.Add(this.ferstNameTB);
             this.Controls.Add(this.lastNameTB);
-            this.Controls.Add(this.roleCB);
+            this.Controls.Add(this.roleConsumerCB);
             this.Controls.Add(this.passwordTB);
             this.Controls.Add(this.emailTB);
             this.Name = "Registration";
@@ -200,7 +203,7 @@ namespace CommunicationSalon
 
         private System.Windows.Forms.TextBox emailTB;
         private System.Windows.Forms.TextBox passwordTB;
-        private System.Windows.Forms.ComboBox roleCB;
+        private System.Windows.Forms.ComboBox roleConsumerCB;
         private System.Windows.Forms.TextBox lastNameTB;
         private System.Windows.Forms.TextBox ferstNameTB;
         private System.Windows.Forms.TextBox middleNameTB;

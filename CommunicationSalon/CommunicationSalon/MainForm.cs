@@ -12,12 +12,37 @@ namespace CommunicationSalon
 {
     public partial class MainForm : Form
     {
-        public MainForm()
+        private static Order order;
+        private static List<ProductInOrder> productInOrders;
+        public MainForm(bool mode)
         {
             InitializeComponent();
             StaticContext.context.Brand.Find(1);
-            StaticContext.context.SaveChanges();
-            tableChoiceCB.SelectedIndex = 0;
+            StaticContext.context.SaveChanges();           
+            if (mode)
+            {
+                BasketB.Visible = clientDGV.Visible =false;
+                tableChoiceCB.SelectedIndex = 0;                
+            }
+            else
+            {
+                addB.Visible = deleteB.Visible = registrateB.Visible = tableChoiceCB.Visible = infoDGV.Visible= false;
+                productInOrders = new List<ProductInOrder>();
+                FillClientDGV();
+                CreateOrder();
+            }
+        }
+        public static void CreateOrder()
+        {
+            order = new Order(StaticContext.context.Order.ToList().Last().Id + 1);
+            productInOrders.Clear();
+        }
+        public void FillClientDGV()
+        {
+            clientDGV.DataSource = (from p in StaticContext.context.Product
+                                    join b in StaticContext.context.Brand on p.BrandId equals b.Id
+                                    join tp in StaticContext.context.TypeProduct on p.TypeProductId equals tp.Id
+                                    select new { p.Article, p.Name, p.Model, p.Price, p.QuantityInStock, brandName = b.Name, TypeProductName = tp.Name }).ToList();
         }
         public void FillDGV()
         {
@@ -102,13 +127,6 @@ namespace CommunicationSalon
         {
             FillDGV();
         }
-
-        private void fill_Click(object sender, EventArgs e)
-        {
-            StartData sd = new StartData();
-            sd.fill();
-        }
-
         private void registrateB_Click(object sender, EventArgs e)
         {
             Registration registration = new Registration();
@@ -150,6 +168,8 @@ namespace CommunicationSalon
                     }
                 case "Order":
                     {
+                        AddChangeOrderForm addChangeOrderForm = new AddChangeOrderForm(StaticContext.context.Order.Find(Convert.ToInt32(infoDGV.Rows[e.RowIndex].Cells[0].Value)));
+                        addChangeOrderForm.Show();
                         break;
                     }
                 case "OrderStatus":
@@ -277,6 +297,141 @@ namespace CommunicationSalon
         private void addB_Click(object sender, EventArgs e)
         {
             add();
+        }
+
+        private void BasketB_Click(object sender, EventArgs e)
+        {
+            BasketForm basketForm = new BasketForm(productInOrders, order);
+            basketForm.Show();
+        }
+
+        private void clientDGV_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            openProductForm(e);
+        }
+        private void openProductForm(DataGridViewCellEventArgs e)
+        {
+            AddChangeProductForm addChangeProductForm = new AddChangeProductForm(StaticContext.context.Product.Find(clientDGV.Rows[e.RowIndex].Cells[0].Value), ref order, ref productInOrders);
+            addChangeProductForm.Show();
+        }
+
+        private void deleteB_Click(object sender, EventArgs e)
+        {
+            switch (tableChoiceCB.SelectedItem.ToString())
+            {
+                case "Brand":
+                    {
+                        if (DialogResult.Yes == MessageBox.Show("Уверен?", "Предупреждение", MessageBoxButtons.YesNo))
+                        {
+                            StaticContext.context.Brand.Remove(StaticContext.context.Brand.Find(Convert.ToInt32(infoDGV.SelectedRows[0].Cells[0].Value)));
+                            StaticContext.context.SaveChanges();
+                        }
+                        break;
+                    }
+                case "Consumer":
+                    {
+                        if (DialogResult.Yes == MessageBox.Show("Уверен?", "Предупреждение", MessageBoxButtons.YesNo))
+                        {
+                            StaticContext.context.Consumer.Remove(StaticContext.context.Consumer.Find(infoDGV.SelectedRows[0].Cells[0].Value));
+                            string sql = $"DROP USER {StaticContext.context.Consumer.Find(infoDGV.SelectedRows[0].Cells[0].Value).Email}";
+                            StaticContext.context.Database.ExecuteSqlCommand(sql);
+                            StaticContext.context.SaveChanges();
+                        }
+                        break;
+                    }
+                case "Gender":
+                    {
+                        if (DialogResult.Yes == MessageBox.Show("Уверен?", "Предупреждение", MessageBoxButtons.YesNo))
+                        {
+                            StaticContext.context.Gender.Remove(StaticContext.context.Gender.Find(Convert.ToInt32(infoDGV.SelectedRows[0].Cells[0].Value)));
+                            StaticContext.context.SaveChanges();
+                        }
+                        break;
+                    }
+                case "Order":
+                    {
+                        if (DialogResult.Yes == MessageBox.Show("Уверен?", "Предупреждение", MessageBoxButtons.YesNo))
+                        {
+                            StaticContext.context.Order.Remove(StaticContext.context.Order.Find(Convert.ToInt32(infoDGV.SelectedRows[0].Cells[0].Value)));
+                            StaticContext.context.SaveChanges();
+                        }
+                        break;
+                    }
+                case "OrderStatus":
+                    {
+                        if (DialogResult.Yes == MessageBox.Show("Уверен?", "Предупреждение", MessageBoxButtons.YesNo))
+                        {
+                            StaticContext.context.OrderStatus.Remove(StaticContext.context.OrderStatus.Find(Convert.ToInt32(infoDGV.SelectedRows[0].Cells[0].Value)));
+                            StaticContext.context.SaveChanges();
+                        }
+                        break;
+                    }
+                case "PhoneNumber":
+                    {
+                        if (DialogResult.Yes == MessageBox.Show("Уверен?", "Предупреждение", MessageBoxButtons.YesNo))
+                        {
+                            StaticContext.context.PhoneNumber.Remove(StaticContext.context.PhoneNumber.Find(infoDGV.SelectedRows[0].Cells[0].Value));
+                            StaticContext.context.SaveChanges();
+                        }
+                        break;
+                    }
+                case "Product":
+                    {
+                        if (DialogResult.Yes == MessageBox.Show("Уверен?", "Предупреждение", MessageBoxButtons.YesNo))
+                        {
+                            StaticContext.context.Product.Remove(StaticContext.context.Product.Find(infoDGV.SelectedRows[0].Cells[0].Value));
+                            StaticContext.context.SaveChanges();
+                        }
+                        break;
+                    }
+                case "ProductInOrder":
+                    {
+                        if (DialogResult.Yes == MessageBox.Show("Уверен?", "Предупреждение", MessageBoxButtons.YesNo))
+                        {
+                            StaticContext.context.ProductInOrder.Remove(StaticContext.context.ProductInOrder.Find(Convert.ToInt32(infoDGV.SelectedRows[0].Cells[0].Value)));
+                            StaticContext.context.SaveChanges();
+                        }
+                        break;
+                    }
+                case "RoleConsumer":
+                    {
+                        if (DialogResult.Yes == MessageBox.Show("Уверен?", "Предупреждение", MessageBoxButtons.YesNo))
+                        {
+                            StaticContext.context.RoleConsumers.Remove(StaticContext.context.RoleConsumers.Find(Convert.ToInt32(infoDGV.SelectedRows[0].Cells[0].Value)));
+                            string sql = $"DROP ROLE {StaticContext.context.RoleConsumers.Find(infoDGV.SelectedRows[0].Cells[0].Value).Name}";
+                            StaticContext.context.Database.ExecuteSqlCommand(sql);
+                            StaticContext.context.SaveChanges();
+                        }
+                        break;
+                    }
+                case "Tariff":
+                    {
+                        if (DialogResult.Yes == MessageBox.Show("Уверен?", "Предупреждение", MessageBoxButtons.YesNo))
+                        {
+                            StaticContext.context.Tariff.Remove(StaticContext.context.Tariff.Find(Convert.ToInt32(infoDGV.SelectedRows[0].Cells[0].Value)));
+                            StaticContext.context.SaveChanges();
+                        }
+                        break;
+                    }
+                case "TypeProduct":
+                    {
+                        if (DialogResult.Yes == MessageBox.Show("Уверен?", "Предупреждение", MessageBoxButtons.YesNo))
+                        {
+                            StaticContext.context.TypeProduct.Remove(StaticContext.context.TypeProduct.Find(Convert.ToInt32(infoDGV.SelectedRows[0].Cells[0].Value)));
+                            StaticContext.context.SaveChanges();
+                        }
+                        break;
+                    }
+                case "User":
+                    {
+                        if (DialogResult.Yes == MessageBox.Show("Уверен?", "Предупреждение", MessageBoxButtons.YesNo))
+                        {
+                            StaticContext.context.User.Remove(StaticContext.context.User.Find(Convert.ToInt32(infoDGV.SelectedRows[0].Cells[0].Value)));
+                            StaticContext.context.SaveChanges();
+                        }
+                        break;
+                    }
+            }
         }
     }
 }

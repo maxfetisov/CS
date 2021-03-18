@@ -33,12 +33,14 @@ namespace CommunicationSalon
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.tableChoiceCB = new System.Windows.Forms.ToolStripComboBox();
             this.BasketB = new System.Windows.Forms.Button();
-            this.fill = new System.Windows.Forms.Button();
             this.registrateB = new System.Windows.Forms.Button();
             this.changeUserB = new System.Windows.Forms.Button();
             this.addB = new System.Windows.Forms.Button();
+            this.deleteB = new System.Windows.Forms.Button();
+            this.clientDGV = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.infoDGV)).BeginInit();
             this.toolStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.clientDGV)).BeginInit();
             this.SuspendLayout();
             // 
             // infoDGV
@@ -47,6 +49,7 @@ namespace CommunicationSalon
             this.infoDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.infoDGV.Location = new System.Drawing.Point(0, 28);
             this.infoDGV.Name = "infoDGV";
+            this.infoDGV.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.infoDGV.Size = new System.Drawing.Size(799, 422);
             this.infoDGV.TabIndex = 0;
             this.infoDGV.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.infoDGV_CellDoubleClick);
@@ -89,16 +92,7 @@ namespace CommunicationSalon
             this.BasketB.TabIndex = 2;
             this.BasketB.Text = "Корзина";
             this.BasketB.UseVisualStyleBackColor = true;
-            // 
-            // fill
-            // 
-            this.fill.Location = new System.Drawing.Point(362, 2);
-            this.fill.Name = "fill";
-            this.fill.Size = new System.Drawing.Size(75, 23);
-            this.fill.TabIndex = 3;
-            this.fill.Text = "Заполнить";
-            this.fill.UseVisualStyleBackColor = true;
-            this.fill.Click += new System.EventHandler(this.fill_Click);
+            this.BasketB.Click += new System.EventHandler(this.BasketB_Click);
             // 
             // registrateB
             // 
@@ -132,15 +126,37 @@ namespace CommunicationSalon
             this.addB.UseVisualStyleBackColor = true;
             this.addB.Click += new System.EventHandler(this.addB_Click);
             // 
+            // deleteB
+            // 
+            this.deleteB.Location = new System.Drawing.Point(734, 2);
+            this.deleteB.Name = "deleteB";
+            this.deleteB.Size = new System.Drawing.Size(66, 23);
+            this.deleteB.TabIndex = 7;
+            this.deleteB.Text = "Удалить";
+            this.deleteB.UseVisualStyleBackColor = true;
+            this.deleteB.Click += new System.EventHandler(this.deleteB_Click);
+            // 
+            // clientDGV
+            // 
+            this.clientDGV.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.clientDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.clientDGV.Location = new System.Drawing.Point(1, 28);
+            this.clientDGV.Name = "clientDGV";
+            this.clientDGV.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.clientDGV.Size = new System.Drawing.Size(799, 422);
+            this.clientDGV.TabIndex = 8;
+            this.clientDGV.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.clientDGV_CellDoubleClick);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.clientDGV);
+            this.Controls.Add(this.deleteB);
             this.Controls.Add(this.addB);
             this.Controls.Add(this.changeUserB);
             this.Controls.Add(this.registrateB);
-            this.Controls.Add(this.fill);
             this.Controls.Add(this.BasketB);
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.infoDGV);
@@ -149,6 +165,7 @@ namespace CommunicationSalon
             ((System.ComponentModel.ISupportInitialize)(this.infoDGV)).EndInit();
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.clientDGV)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -160,9 +177,10 @@ namespace CommunicationSalon
         private System.Windows.Forms.ToolStrip toolStrip1;
         private System.Windows.Forms.ToolStripComboBox tableChoiceCB;
         private System.Windows.Forms.Button BasketB;
-        private System.Windows.Forms.Button fill;
         private System.Windows.Forms.Button registrateB;
         private System.Windows.Forms.Button changeUserB;
         private System.Windows.Forms.Button addB;
+        private System.Windows.Forms.Button deleteB;
+        private System.Windows.Forms.DataGridView clientDGV;
     }
 }

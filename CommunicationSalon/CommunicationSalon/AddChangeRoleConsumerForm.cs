@@ -30,6 +30,8 @@ namespace CommunicationSalon
         {
             if (DialogResult.Yes == MessageBox.Show("Уверен?", "Предупреждение", MessageBoxButtons.YesNo))
             {
+                string sql = $"DROP ROLE {rc.Name}";
+                StaticContext.context.Database.ExecuteSqlCommand(sql);
                 StaticContext.context.RoleConsumers.Remove(rc);
                 StaticContext.context.SaveChanges();
                 Close();
@@ -38,7 +40,11 @@ namespace CommunicationSalon
 
         private void changeB_Click(object sender, EventArgs e)
         {
+            string sql = $"DROP ROLE {rc.Name}";
+            StaticContext.context.Database.ExecuteSqlCommand(sql);
             rc.Name = nameTB.Text;
+            sql = $"CREATE ROLE {rc.Name}";
+            StaticContext.context.Database.ExecuteSqlCommand(sql);
             StaticContext.context.SaveChanges();
             Close();
         }
@@ -46,6 +52,8 @@ namespace CommunicationSalon
         private void addB_Click(object sender, EventArgs e)
         {
             StaticContext.context.RoleConsumers.Add(new RoleConsumer(StaticContext.context.RoleConsumers.ToList().Last().Id + 1, nameTB.Text));
+            string sql = $"CREATE ROLE {nameTB.Text}";
+            StaticContext.context.Database.ExecuteSqlCommand(sql);
             StaticContext.context.SaveChanges();
             Close();
         }

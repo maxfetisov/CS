@@ -47,6 +47,10 @@ namespace CommunicationSalon
             this.deleteB = new System.Windows.Forms.Button();
             this.changeB = new System.Windows.Forms.Button();
             this.intoBasketB = new System.Windows.Forms.Button();
+            this.countP = new System.Windows.Forms.Button();
+            this.countM = new System.Windows.Forms.Button();
+            this.countL = new System.Windows.Forms.Label();
+            this.cL = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.priceNUD)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.quantityInStockNUD)).BeginInit();
             this.SuspendLayout();
@@ -93,6 +97,11 @@ namespace CommunicationSalon
             // priceNUD
             // 
             this.priceNUD.Location = new System.Drawing.Point(346, 185);
+            this.priceNUD.Maximum = new decimal(new int[] {
+            1569325056,
+            23283064,
+            0,
+            0});
             this.priceNUD.Name = "priceNUD";
             this.priceNUD.Size = new System.Drawing.Size(139, 20);
             this.priceNUD.TabIndex = 5;
@@ -100,6 +109,11 @@ namespace CommunicationSalon
             // quantityInStockNUD
             // 
             this.quantityInStockNUD.Location = new System.Drawing.Point(75, 266);
+            this.quantityInStockNUD.Maximum = new decimal(new int[] {
+            1215752192,
+            23,
+            0,
+            0});
             this.quantityInStockNUD.Name = "quantityInStockNUD";
             this.quantityInStockNUD.Size = new System.Drawing.Size(139, 20);
             this.quantityInStockNUD.TabIndex = 6;
@@ -169,7 +183,7 @@ namespace CommunicationSalon
             // 
             // addB
             // 
-            this.addB.Location = new System.Drawing.Point(168, 344);
+            this.addB.Location = new System.Drawing.Point(172, 322);
             this.addB.Name = "addB";
             this.addB.Size = new System.Drawing.Size(75, 23);
             this.addB.TabIndex = 14;
@@ -179,7 +193,7 @@ namespace CommunicationSalon
             // 
             // deleteB
             // 
-            this.deleteB.Location = new System.Drawing.Point(285, 344);
+            this.deleteB.Location = new System.Drawing.Point(289, 322);
             this.deleteB.Name = "deleteB";
             this.deleteB.Size = new System.Drawing.Size(75, 23);
             this.deleteB.TabIndex = 15;
@@ -189,7 +203,7 @@ namespace CommunicationSalon
             // 
             // changeB
             // 
-            this.changeB.Location = new System.Drawing.Point(168, 344);
+            this.changeB.Location = new System.Drawing.Point(172, 322);
             this.changeB.Name = "changeB";
             this.changeB.Size = new System.Drawing.Size(75, 23);
             this.changeB.TabIndex = 16;
@@ -199,19 +213,62 @@ namespace CommunicationSalon
             // 
             // intoBasketB
             // 
-            this.intoBasketB.Enabled = false;
             this.intoBasketB.Location = new System.Drawing.Point(346, 263);
             this.intoBasketB.Name = "intoBasketB";
-            this.intoBasketB.Size = new System.Drawing.Size(75, 23);
+            this.intoBasketB.Size = new System.Drawing.Size(139, 23);
             this.intoBasketB.TabIndex = 17;
             this.intoBasketB.Text = "В корзину";
             this.intoBasketB.UseVisualStyleBackColor = true;
+            this.intoBasketB.Click += new System.EventHandler(this.intoBasketB_Click);
+            // 
+            // countP
+            // 
+            this.countP.Location = new System.Drawing.Point(441, 234);
+            this.countP.Name = "countP";
+            this.countP.Size = new System.Drawing.Size(25, 23);
+            this.countP.TabIndex = 18;
+            this.countP.Text = "+";
+            this.countP.UseVisualStyleBackColor = true;
+            this.countP.Click += new System.EventHandler(this.countP_Click);
+            // 
+            // countM
+            // 
+            this.countM.Location = new System.Drawing.Point(370, 234);
+            this.countM.Name = "countM";
+            this.countM.Size = new System.Drawing.Size(25, 23);
+            this.countM.TabIndex = 19;
+            this.countM.Text = "-";
+            this.countM.UseVisualStyleBackColor = true;
+            this.countM.Click += new System.EventHandler(this.countM_Click);
+            // 
+            // countL
+            // 
+            this.countL.AutoSize = true;
+            this.countL.Location = new System.Drawing.Point(411, 239);
+            this.countL.Name = "countL";
+            this.countL.Size = new System.Drawing.Size(13, 13);
+            this.countL.TabIndex = 20;
+            this.countL.Text = "1";
+            this.countL.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // cL
+            // 
+            this.cL.AutoSize = true;
+            this.cL.Location = new System.Drawing.Point(383, 218);
+            this.cL.Name = "cL";
+            this.cL.Size = new System.Drawing.Size(69, 13);
+            this.cL.TabIndex = 21;
+            this.cL.Text = "Количество:";
             // 
             // AddChangeProductForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(535, 402);
+            this.ClientSize = new System.Drawing.Size(535, 368);
+            this.Controls.Add(this.cL);
+            this.Controls.Add(this.countL);
+            this.Controls.Add(this.countM);
+            this.Controls.Add(this.countP);
             this.Controls.Add(this.intoBasketB);
             this.Controls.Add(this.changeB);
             this.Controls.Add(this.deleteB);
@@ -259,5 +316,9 @@ namespace CommunicationSalon
         private System.Windows.Forms.Button deleteB;
         private System.Windows.Forms.Button changeB;
         private System.Windows.Forms.Button intoBasketB;
+        private System.Windows.Forms.Button countP;
+        private System.Windows.Forms.Button countM;
+        private System.Windows.Forms.Label countL;
+        private System.Windows.Forms.Label cL;
     }
 }

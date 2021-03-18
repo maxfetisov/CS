@@ -30,6 +30,10 @@ namespace CommunicationSalon
         public virtual int OrderStatusId { get; set; }
         public virtual ICollection<ProductInOrder> ProductInOrders { get; set; }
         public Order() { }
+        public Order(int Id) 
+        {
+            this.Id = Id;
+        }
         public Order(DateTime StartDate, DateTime FinishDate, decimal Price, int UserId, int OrderStatusId)
         {
             this.StartDate = StartDate;

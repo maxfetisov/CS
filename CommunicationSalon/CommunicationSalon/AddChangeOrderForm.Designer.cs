@@ -68,6 +68,7 @@ namespace CommunicationSalon
             // 
             // userCB
             // 
+            this.userCB.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.userCB.FormattingEnabled = true;
             this.userCB.Location = new System.Drawing.Point(59, 210);
             this.userCB.Name = "userCB";
@@ -76,6 +77,7 @@ namespace CommunicationSalon
             // 
             // statusCB
             // 
+            this.statusCB.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.statusCB.FormattingEnabled = true;
             this.statusCB.Location = new System.Drawing.Point(59, 265);
             this.statusCB.Name = "statusCB";
@@ -90,6 +92,7 @@ namespace CommunicationSalon
             this.addB.TabIndex = 5;
             this.addB.Text = "Добавить";
             this.addB.UseVisualStyleBackColor = true;
+            this.addB.Click += new System.EventHandler(this.addB_Click);
             // 
             // deleteB
             // 
@@ -109,6 +112,7 @@ namespace CommunicationSalon
             this.changeB.TabIndex = 7;
             this.changeB.Text = "Изменить";
             this.changeB.UseVisualStyleBackColor = true;
+            this.changeB.Click += new System.EventHandler(this.changeB_Click);
             // 
             // label1
             // 
